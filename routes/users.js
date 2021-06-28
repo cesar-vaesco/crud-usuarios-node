@@ -4,19 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const router = express.Router();
 
-const users = [
-    {
-        name: "John",
-        lastName: "Doe",
-        age: 25
-    },
-    {
-        name: "Jane",
-        lastName: "Doe",
-        age: 24
-    }
-
-]
+const users = [];
 
 
 // http://localhost:5000/users/
@@ -27,7 +15,14 @@ router.get('/', (req, res) => {
 
 // http://localhost:5000/users/test  -- testeando la ruta
 router.get('/:id', (req, res) => {
-    res.send('The GEt ID  ROUTE')
+
+    /*     res.send(req.params) */
+
+    const { id } = req.params;
+
+    const foundUser = users.find((user) => user.id === id);
+    res.send(foundUser)
+
 });
 
 
