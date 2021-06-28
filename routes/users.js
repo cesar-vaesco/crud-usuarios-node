@@ -25,6 +25,12 @@ router.get('/', (req, res) => {
 });
 
 
+// http://localhost:5000/users/test  -- testeando la ruta
+router.get('/:id', (req, res) => {
+    res.send('The GEt ID  ROUTE')
+});
+
+
 router.post('/', (req, res) => {
 
     const user = req.body;
