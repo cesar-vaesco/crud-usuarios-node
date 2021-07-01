@@ -1,6 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
+import fs from 'fs';
 
 let users = [];
+
+const users_json = fs.readFileSync('user.json', 'utf-8');
+users = JSON.parse(users_json);
 
 export const getUsers = (req, res) => {
     res.send(users);
@@ -16,13 +20,29 @@ export const getUserById = (req, res) => {
 
 export const createUser = (req, res) => {
 
-    const user = req.body;
+    /* const user = req.body; */
 
-    const iserWithId = { ...user, id: uuidv4() }
+    const { name, lastName, age } = req.body;
 
-    users.push(iserWithId);
+    /* let userWithId = { ...user, id: uuidv4() } */
 
-    res.send(`User with the name ${user.name} added to the databases!`);
+    let userWithId = {
+        name,
+        lastName,
+        age,
+        id: uuidv4()
+    }
+
+    console.log(userWithId);
+    console.log(users);
+
+
+    users.push(userWithId);
+
+    const json_user = JSON.stringify(users);
+    fs.writeFileSync('user.json', json_user, 'utf-8');
+
+    res.send(`User with the name ${userWithId.name} added to the databases!`);
 }
 
 

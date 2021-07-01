@@ -1,5 +1,19 @@
-{
-    "name": "John",
-    "lastName": "Doe",
-    "age": 25
-}
+[
+    {
+        "name": "John",
+        "lastName": "Doe",
+        "age": 25
+    },
+    {
+        "name": "César",
+        "lastName": "Vargas",
+        "age": 41,
+        "id": "fc409b7f-f9cd-4200-90be-66ce18d1020d"
+    },
+    {
+        "name": "Veronica",
+        "lastName": "Cortez",
+        "age": 41,
+        "id": "93007eb6-7d09-463b-891d-0b12ff5400ff"
+    }
+]
